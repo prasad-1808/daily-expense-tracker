@@ -1,0 +1,72 @@
+/* Add your custom styles here */
+.App {
+  display: flex;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  width: 200px;
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.home,
+.login,
+.register,
+.dashboard {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+}
+
+form input,
+form select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+.expense-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-list li {
+  background-color: #f4f4f4;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
