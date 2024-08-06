@@ -29,59 +29,87 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>UserID:</label>
-          <input
-            type="text"
-            value={userid}
-            onChange={(e) => setUserId(e.target.value)}
-          />
+    <div className="container">
+      <div className="row justify-content-center align-items-center vh-100">
+        <div className="col-md-6 col-lg-4">
+          <div className="card shadow-lg">
+            <div className="card-body">
+              <h2 className="card-title text-center mb-4">Register</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="userid">UserID:</label>
+                  <input
+                    type="text"
+                    id="userid"
+                    className="form-control"
+                    value={userid}
+                    onChange={(e) => setUserId(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="mobileNo">Mobile No:</label>
+                  <input
+                    type="text"
+                    id="mobileNo"
+                    className="form-control"
+                    value={mobileNo}
+                    onChange={(e) => setMobileNo(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="age">Age:</label>
+                  <input
+                    type="number"
+                    id="age"
+                    className="form-control"
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="monthlyRevenue">Monthly Revenue:</label>
+                  <input
+                    type="number"
+                    id="monthlyRevenue"
+                    className="form-control"
+                    value={monthlyRevenue}
+                    onChange={(e) => setMonthlyRevenue(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Mobile No:</label>
-          <input
-            type="text"
-            value={mobileNo}
-            onChange={(e) => setMobileNo(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Age:</label>
-          <input
-            type="number"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Monthly Revenue:</label>
-          <input
-            type="number"
-            value={monthlyRevenue}
-            onChange={(e) => setMonthlyRevenue(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+      </div>
     </div>
   );
 };

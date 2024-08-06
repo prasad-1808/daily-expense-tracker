@@ -20,27 +20,43 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>UserID:</label>
-          <input
-            type="text"
-            value={userid}
-            onChange={(e) => setUserId(e.target.value)}
-          />
+    <div className="container">
+      <div className="row justify-content-center align-items-center vh-100">
+        <div className="col-md-4 col-lg-3">
+          <div className="card shadow-lg">
+            <div className="card-body">
+              <h2 className="card-title text-center mb-4">Login</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="userid">UserID:</label>
+                  <input
+                    type="text"
+                    id="userid"
+                    className="form-control"
+                    value={userid}
+                    onChange={(e) => setUserId(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      </div>
     </div>
   );
 };

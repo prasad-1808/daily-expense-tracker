@@ -14,7 +14,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Expense" (
     "id" SERIAL NOT NULL,
-    "userId" INTEGER NOT NULL,
+    "userId" TEXT NOT NULL,
     "category" TEXT NOT NULL,
     "amount" DOUBLE PRECISION NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
@@ -26,4 +26,4 @@ CREATE TABLE "Expense" (
 CREATE UNIQUE INDEX "User_userid_key" ON "User"("userid");
 
 -- AddForeignKey
-ALTER TABLE "Expense" ADD CONSTRAINT "Expense_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Expense" ADD CONSTRAINT "Expense_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("userid") ON DELETE RESTRICT ON UPDATE CASCADE;
