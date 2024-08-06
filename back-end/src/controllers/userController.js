@@ -3,8 +3,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
-  const { userid, name, mobileNo, age, monthlyRevenue, password } = req.body;
+  let { userid, name, mobileNo, age, monthlyRevenue, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
+  age = parseInt(age);
+  monthlyRevenue = parseFloat(monthlyRevenue);
 
   try {
     const user = await prisma.user.create({
@@ -20,6 +22,7 @@ const register = async (req, res) => {
 
     res.status(201).json(user);
   } catch (error) {
+    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };

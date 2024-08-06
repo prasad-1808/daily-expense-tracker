@@ -1,7 +1,8 @@
 const prisma = require("../utils/db");
 
 const addExpense = async (req, res) => {
-  const { userId, category, amount, date } = req.body;
+  let { userId, category, amount, date } = req.body;
+  amount = parseFloat(amount);
 
   try {
     const expense = await prisma.expense.create({
@@ -30,6 +31,25 @@ const getExpenses = async (req, res) => {
     res.json(expenses);
   } catch (error) {
     res.status(400).json({ error: error.message });
+  }
+};
+
+const createExpense = async (req, res) => {
+  const { userId, category, amount, date } = req.body;
+
+  try {
+    const expense = await prisma.expense.create({
+      data: {
+        userId: userId,
+        category: category,
+        amount: parseFloat(amount),
+        date: new Date(date).toISOString(),
+      },
+    });
+    res.status(201).json(expense);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
